@@ -6,3 +6,11 @@ app = Flask(__name__, static_folder="../frontend/build/", static_url_path="")
 @app.route('/home')
 def get_current_time():
     return {'time': time.time()}
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
+
+if __name__ == '__main__':
+    app.run()
