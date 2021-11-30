@@ -6,7 +6,7 @@ import axios from "axios";
 const App: React.FC = () => {
   const [text, setText] = useState("hello");
   const onClickGetTime = () => {
-    axios.get("http://localhost:8000/home").then((res) => {
+    axios.get("/home").then((res) => {
       setText(res.data.time);
     });
   };
