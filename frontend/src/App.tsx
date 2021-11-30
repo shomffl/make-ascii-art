@@ -1,24 +1,15 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Home } from "./Home";
+import { PageA } from "./PageA";
 
-const App: React.FC = () => {
-  const [text, setText] = useState("hello");
-  const onClickGetTime = () => {
-    axios.get("/home").then((res) => {
-      setText(res.data.time);
-    });
-  };
+export const App:React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {text}
-        <button onClick={onClickGetTime}>get</button>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/"  element={<Home/>} />
+        <Route path="/page_a"  element={<PageA/>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
-
-export default App;
