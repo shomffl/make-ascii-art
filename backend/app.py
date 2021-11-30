@@ -7,7 +7,7 @@ import time
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../frontend/build/static/"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
