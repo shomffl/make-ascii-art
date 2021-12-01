@@ -6,7 +6,7 @@ from backend.api.resize import ResizeImage
 from backend.api.make import MakeGrayFrame
 import os
 
-app = Flask(__name__, static_folder="../frontend/build/", static_url_path="")
+app = Flask(__name__, static_folder="frontend/build/", static_url_path="")
 
 DOWNLOAD_PATH = "./frontend/build/static/images/download_images/"
 ASCII_PATH = "./frontend/build/static/images/ascii_images/"
