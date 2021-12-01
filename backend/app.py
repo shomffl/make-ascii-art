@@ -1,8 +1,9 @@
 import time
 from flask import Flask, request
 from werkzeug.utils import secure_filename
-from resize import ResizeImage
-from make import MakeGrayFrame
+from api.convert_filename import Kakasi
+from api.resize import ResizeImage
+from api.make import MakeGrayFrame
 import os
 
 app = Flask(__name__, static_folder="../frontend/build/", static_url_path="")
@@ -18,7 +19,8 @@ def get_current_time():
 def make_ascii_art():
     if request.method == "POST":
         data = request.files["file"]
-        filename = data.filename
+        ascii_name = Kakasi.japanese_to_ascii(data.filename)
+        filename = secure_filename(ascii_name)
         filepath = os.path.join(DOWNLOAD_PATH, filename)
         data.save(filepath)
 
