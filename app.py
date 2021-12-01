@@ -8,8 +8,8 @@ import os
 
 app = Flask(__name__, static_folder="../frontend/build/", static_url_path="")
 
-DOWNLOAD_PATH = "../frontend/build/static/images/download_images/"
-ASCII_PATH = "../frontend/build/static/images/ascii_images/"
+DOWNLOAD_PATH = "./frontend/build/static/images/download_images/"
+ASCII_PATH = "./frontend/build/static/images/ascii_images/"
 
 @app.route('/home')
 def get_current_time():
@@ -39,6 +39,7 @@ def create_folder():
         image_folder_exist = os.path.exists(BASE_PATH)
 
         if image_folder_exist == False:
+            os.mkdir(BASE_PATH)
             os.mkdir(f"{BASE_PATH}ascii_images")
             os.mkdir(f"{BASE_PATH}download_images")
         else:
