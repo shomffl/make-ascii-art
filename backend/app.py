@@ -35,7 +35,7 @@ def make_ascii_art():
 @app.route("/create_folder", methods=["GET"])
 def create_folder():
     if request.method=="GET":
-        BASE_PATH = "../frontend/build/static/images/"
+        BASE_PATH = "./frontend/build/static/images/"
         image_folder_exist = os.path.exists(BASE_PATH)
 
         if image_folder_exist == False:
