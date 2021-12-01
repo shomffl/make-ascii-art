@@ -39,6 +39,7 @@ def create_folder():
         image_folder_exist = os.path.exists(BASE_PATH)
 
         if image_folder_exist == False:
+            os.mkdir(BASE_PATH)
             os.mkdir(f"{BASE_PATH}ascii_images")
             os.mkdir(f"{BASE_PATH}download_images")
         else:
