@@ -5,6 +5,8 @@ from backend.convert_filename import Kakasi
 from backend.resize import ResizeImage
 from backend.make import MakeGrayFrame
 import os
+import random
+import string
 
 app = Flask(__name__, static_folder="frontend/build/", static_url_path="")
 
@@ -27,10 +29,14 @@ def make_ascii_art():
         resize = ResizeImage(f"{DOWNLOAD_PATH}{filename}",DOWNLOAD_PATH)
         resize.resize_image()
 
-        make = MakeGrayFrame(f"{DOWNLOAD_PATH}newimage.png", ASCII_PATH)
+        #ファイル名にするランダム文字列を作成
+        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(8)]
+        randstr = ''.join(randlst)
+
+        make = MakeGrayFrame(f"{DOWNLOAD_PATH}newimage.png", ASCII_PATH, randstr)
         make.make_gray()
 
-        return {"name": "image.png"}
+        return {"name": f"image{randstr}.png"}
 
 @app.route("/create_folder", methods=["GET"])
 def create_folder():

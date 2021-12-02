@@ -5,9 +5,10 @@ from PIL import Image, ImageFont, ImageDraw
 #ascii-art作成のための処理
 class MakeGrayFrame:
 
-    def __init__(self, filepath, output_path):
+    def __init__(self, filepath, output_path, random_num):
         self.filepath = filepath
         self.output_path = output_path
+        self.random_num = random_num
 
     def make_gray(self):
 
@@ -44,4 +45,4 @@ class MakeGrayFrame:
 
         draw.text(pos,output,fill=textRGB, font = font)
         image_resize = image.resize((width, height))
-        image_resize.save(f"{self.output_path}image.png")
+        image_resize.save(f"{self.output_path}image{self.random_num}.png")
