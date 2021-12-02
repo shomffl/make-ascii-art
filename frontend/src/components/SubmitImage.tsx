@@ -3,9 +3,9 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
-import logo from "./apple.png";
+import logo from "../apple.png";
 
-export const PageA: React.FC = () => {
+export const SubmitImage: React.FC = () => {
   const [image, setImage] = useState(logo);
   const onClickSubmit = (e: any) => {
     const form = new FormData(e.target);
