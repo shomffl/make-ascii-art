@@ -10,7 +10,7 @@ export const DownloadImage: React.FC<{ downloadPath: string }> = memo(
     const onClickDownload = () => {
       saveAs(
         `${process.env.PUBLIC_URL}/static/images/download_images/${downloadPath}`,
-        "image.png"
+        "image"
       );
       console.log(
         `${process.env.PUBLIC_URL}/static/images/ascii_images/${downloadPath}`
