@@ -59,7 +59,7 @@ export const SubmitImage: React.FC<{
       {openDownload ? (
         <Stack direction="row" spacing={2}>
           <DownloadImage downloadPath={downloadPath} />
-          <Remake />
+          <Remake setImage={setImage} setOpenDownload={setOpenDownload}/>
         </Stack>
       ) : (
         <form onSubmit={onClickSubmit} onChange={imageSelected}>
