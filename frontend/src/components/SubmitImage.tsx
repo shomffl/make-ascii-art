@@ -11,6 +11,7 @@ export const SubmitImage: React.FC<{
 }> = (props) => {
   const { setImage } = props;
   const [downloadPath, setDownloadPath] = useState("");
+  const [openDownload, setOpenDownload] = useState(false);
   const onClickSubmit = (e: any) => {
     const form = new FormData(e.target);
 
@@ -23,6 +24,7 @@ export const SubmitImage: React.FC<{
         .then((res) => {
           setImage(res.data.name);
           setDownloadPath(res.data.name);
+          setOpenDownload(true);
         });
     };
     Upload();
@@ -30,29 +32,34 @@ export const SubmitImage: React.FC<{
 
   return (
     <>
-      <form onSubmit={onClickSubmit}>
+      {openDownload ? (
         <Stack direction="row" spacing={2}>
-          <label>
-            <input
-              accept="image/*"
-              type="file"
-              name="file"
-              style={{ display: "none" }}
-            />
-            <Button variant="contained" component="span">
-              Upload
-            </Button>
-          </label>
-          <label>
-            <Button variant="contained" type="submit">
-              <span>Send</span>
-              <SendIcon />
-            </Button>
-          </label>
+          <DownloadImage downloadPath={downloadPath} />
+          <Remake />
         </Stack>
-      </form>
-      <DownloadImage downloadPath={downloadPath} />
-      <Remake />
+      ) : (
+        <form onSubmit={onClickSubmit}>
+          <Stack direction="row" spacing={2}>
+            <label>
+              <input
+                accept="image/*"
+                type="file"
+                name="file"
+                style={{ display: "none" }}
+              />
+              <Button variant="contained" component="span">
+                Upload
+              </Button>
+            </label>
+            <label>
+              <Button variant="contained" type="submit">
+                <span>Send</span>
+                <SendIcon />
+              </Button>
+            </label>
+          </Stack>
+        </form>
+      )}
     </>
   );
 };
