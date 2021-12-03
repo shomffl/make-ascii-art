@@ -17,10 +17,13 @@ export const SubmitImage: React.FC<{
   const [openDownload, setOpenDownload] = useState(false);
   const [canClickSend, setCanClickSend] = useState(true);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [canClickSelect, setCanClickSelect] = useState(false);
 
   const onClickSubmit = (e: any) => {
     const form = new FormData(e.target);
     setOpenSnackbar(false);
+    setCanClickSelect(true);
+    setCanClickSend(true);
 
     e.preventDefault();
     const Upload = () => {
@@ -39,6 +42,7 @@ export const SubmitImage: React.FC<{
   const imageSelected = (e: any) => {
     setCanClickSend(false);
     setOpenSnackbar(true);
+    setCanClickSelect(false);
   };
 
   const action = (
@@ -59,7 +63,7 @@ export const SubmitImage: React.FC<{
       {openDownload ? (
         <Stack direction="row" spacing={2}>
           <DownloadImage downloadPath={downloadPath} />
-          <Remake setImage={setImage} setOpenDownload={setOpenDownload}/>
+          <Remake setImage={setImage} setOpenDownload={setOpenDownload} />
         </Stack>
       ) : (
         <form onSubmit={onClickSubmit} onChange={imageSelected}>
@@ -76,8 +80,12 @@ export const SubmitImage: React.FC<{
                 name="file"
                 style={{ display: "none" }}
               />
-              <Button variant="contained" component="span">
-                Upload
+              <Button
+                variant="contained"
+                component="span"
+                disabled={canClickSelect}
+              >
+                Select
               </Button>
             </label>
             <label>
