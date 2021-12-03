@@ -13,7 +13,7 @@ export const SubmitImage: React.FC<{
   const [downloadPath, setDownloadPath] = useState("");
   const onClickSubmit = (e: any) => {
     const form = new FormData(e.target);
-    
+
     e.preventDefault();
     const Upload = () => {
       axios
@@ -21,9 +21,7 @@ export const SubmitImage: React.FC<{
           headers: { "content-type": "multipart/form-data" },
         })
         .then((res) => {
-          setImage(
-            `${process.env.PUBLIC_URL}/static/images/ascii_images/${res.data.name}`
-          );
+          setImage(res.data.name);
           setDownloadPath(res.data.name);
         });
     };
