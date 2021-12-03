@@ -1,4 +1,3 @@
-import time
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 from backend.convert_filename import Kakasi
@@ -29,9 +28,6 @@ cloudinary.config(
 DOWNLOAD_PATH = "./frontend/build/static/images/download_images/"
 ASCII_PATH = "./frontend/build/static/images/ascii_images/"
 
-@app.route('/home')
-def get_current_time():
-    return {'time': time.time()}
 
 @app.route("/make", methods=["POST"])
 def make_ascii_art():

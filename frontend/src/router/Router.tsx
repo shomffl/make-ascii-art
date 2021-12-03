@@ -10,7 +10,7 @@ export const Router: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/page_a" element={<ImageDisplay />} />
+          <Route path="/make" element={<ImageDisplay />} />
         </Routes>
       </BrowserRouter>
     </div>
