@@ -63,7 +63,7 @@ export const SubmitImage: React.FC<{
       {openDownload ? (
         <Stack direction="row" spacing={2}>
           <DownloadImage downloadPath={downloadPath} />
-          <Remake setImage={setImage} setOpenDownload={setOpenDownload} />
+          <Remake setImage={setImage} setOpenDownload={setOpenDownload} setCanClickSelect={setCanClickSelect}/>
         </Stack>
       ) : (
         <form onSubmit={onClickSubmit} onChange={imageSelected}>
@@ -79,6 +79,7 @@ export const SubmitImage: React.FC<{
                 type="file"
                 name="file"
                 style={{ display: "none" }}
+                disabled={canClickSelect}
               />
               <Button
                 variant="contained"
