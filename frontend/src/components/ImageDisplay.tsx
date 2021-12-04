@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import { SubmitImage } from "./SubmitImage";
-import logo from "../apple.png";
-
+import logo from "../momiji.png";
+import styled from "styled-components";
+import background from "../washi.png";
 
 export const ImageDisplay = () => {
   const [image, setImage] = useState(logo);
 
   return (
-    <div>
-      <header>
+    <Background>
+      <ContentsPosition>
         <img src={image} style={{ width: "500px" }} />
         <SubmitImage setImage={setImage} />
-
-      </header>
-    </div>
+      </ContentsPosition>
+    </Background>
   );
 };
+
+const Background = styled.header`
+  background-image: url(${background});
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ContentsPosition = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
