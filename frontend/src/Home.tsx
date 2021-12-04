@@ -7,6 +7,12 @@ import fugaku from "./fugaku.png";
 import fugaku_ascii from "./fugaku_ascii.png";
 import black from "./black.png";
 
+const buttonStyle = {
+  fontSize: "1.5vw",
+  borderRadius: "30px",
+  border: "2px solid silver",
+};
+
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const onClickPage = () => {
@@ -42,16 +48,95 @@ export const Home: React.FC = () => {
         <BlackImage2 src={black} style={{ animationDelay: "1.2s" }} />
         <BlackImage2 src={black} style={{ animationDelay: "1.1s" }} />
         <BlackImage2 src={black} style={{ animationDelay: "1s" }} />
-
-        {/* <StyledButton onClick={onClickPage} style={{height: "50px"}}>push</StyledButton> */}
+        <TitlePosition>
+          <Title>PASSME ASCII</Title>
+          <StyledButton
+            onClick={onClickPage}
+            variant="contained"
+            style={buttonStyle}
+          >
+            Start
+          </StyledButton>
+        </TitlePosition>
       </Background>
     </div>
   );
 };
 
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  70%{
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const TitlePosition = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: ${fadeIn};
+  animation-duration: 8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+`;
+
+const Title = styled.h1`
+  position: absolute;
+  bottom: 45vh;
+  font-size: 7vmax;
+`;
+
+const circleanime = keyframes`
+ 0%{
+    transform: scale(0.68);
+  }
+  100%{
+    transform: scale(1.2);
+    opacity: 0;
+  }
+`;
+
 const StyledButton = styled(Button)`
   position: absolute;
-  bottom: 50vh;
+  bottom: 40vh;
+  height: 9vh;
+  width: 13vw;
+  border: 1px solid;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #402721 30%, #a69292 90%);
+
+  &: hover {
+    background: linear-gradient(45deg, silver 30%, #a69292 90%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    border: 2px solid #a69292;
+    width: 140%;
+    height: 140%;
+    border-radius: 30px;
+    opacity: 1;
+    animation: 1s ${circleanime} linear infinite;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    border: 1px solid #a69292;
+    width: 140%;
+    height: 140%;
+    border-radius: 30px;
+    opacity: 1;
+    animation: 1s ${circleanime} linear infinite;
+    animation-delay: 0.3s;
+  }
 `;
 
 const SlideLeft = keyframes`
@@ -111,7 +196,7 @@ const BlackImage2 = styled.img`
   right: -100vw;
 `;
 
-const fadeIn = keyframes`
+const changeImage = keyframes`
   from {
      background-image: url(${fugaku});
   }
@@ -123,7 +208,7 @@ const fadeIn = keyframes`
 `;
 
 const Background = styled.header`
-  animation-name: ${fadeIn};
+  animation-name: ${changeImage};
   animation-duration: 4s;
   animation-timing-function: ease-in;
   background-image: url(${fugaku_ascii});
