@@ -39,6 +39,7 @@ export const SubmitImage: React.FC<{
     };
     Upload();
   };
+
   const imageSelected = (e: any) => {
     setCanClickSend(false);
     setOpenSnackbar(true);
@@ -46,7 +47,7 @@ export const SubmitImage: React.FC<{
   };
 
   const action = (
-    <React.Fragment>
+    <>
       <IconButton
         size="small"
         aria-label="close"
@@ -55,7 +56,7 @@ export const SubmitImage: React.FC<{
       >
         <CloseIcon fontSize="small" />
       </IconButton>
-    </React.Fragment>
+    </>
   );
 
   return (
@@ -63,7 +64,11 @@ export const SubmitImage: React.FC<{
       {openDownload ? (
         <Stack direction="row" spacing={2}>
           <DownloadImage downloadPath={downloadPath} />
-          <Remake setImage={setImage} setOpenDownload={setOpenDownload} setCanClickSelect={setCanClickSelect}/>
+          <Remake
+            setImage={setImage}
+            setOpenDownload={setOpenDownload}
+            setCanClickSelect={setCanClickSelect}
+          />
         </Stack>
       ) : (
         <form onSubmit={onClickSubmit} onChange={imageSelected}>
@@ -82,15 +87,23 @@ export const SubmitImage: React.FC<{
                 disabled={canClickSelect}
               />
               <Button
-                variant="contained"
-                component="span"
+                variant="outlined"
+                size="large"
+                  component="span"
+                  color = "secondary"
                 disabled={canClickSelect}
               >
                 Select
               </Button>
             </label>
             <label>
-              <Button variant="contained" type="submit" disabled={canClickSend}>
+              <Button
+                variant="outlined"
+                size="large"
+                  type="submit"
+                  color = "secondary"
+                disabled={canClickSend}
+              >
                 <span>Send</span>
                 <SendIcon />
               </Button>

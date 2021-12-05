@@ -10,7 +10,7 @@ export const ImageDisplay: React.FC = () => {
   return (
     <Background>
       <ContentsPosition>
-        <img src={image} style={{ width: "500px" }} />
+        <img src={image} style={{ width: "45vw" }} />
         <SubmitImage setImage={setImage} />
       </ContentsPosition>
     </Background>
@@ -30,4 +30,5 @@ const ContentsPosition = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1vmax;
 `;

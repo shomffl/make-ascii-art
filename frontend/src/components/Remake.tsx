@@ -16,7 +16,12 @@ export const Remake: React.FC<{
   };
   return (
     <div>
-      <Button variant="contained" onClick={onClickRemake}>
+      <Button
+        variant="outlined"
+        size="large"
+        color="secondary"
+        onClick={onClickRemake}
+      >
         Remake
         <ReplayIcon />
       </Button>
