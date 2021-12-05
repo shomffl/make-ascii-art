@@ -4,7 +4,7 @@ import logo from "../momiji.png";
 import styled from "styled-components";
 import background from "../washi.png";
 
-export const ImageDisplay = () => {
+export const ImageDisplay: React.FC = () => {
   const [image, setImage] = useState(logo);
 
   return (

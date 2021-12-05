@@ -1,7 +1,7 @@
 import React, { Dispatch } from "react";
 import Button from "@mui/material/Button";
 import ReplayIcon from "@mui/icons-material/Replay";
-import logo from "../apple.png";
+import logo from "../momiji.png";
 
 export const Remake: React.FC<{
   setImage: Dispatch<React.SetStateAction<string>>;
