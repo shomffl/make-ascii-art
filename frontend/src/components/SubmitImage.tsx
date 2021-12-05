@@ -9,7 +9,6 @@ import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
-
 const buttonStyle = {
   border: "0.1vmax solid #F04B48",
   color: "#F04B48",
@@ -17,8 +16,9 @@ const buttonStyle = {
 
 export const SubmitImage: React.FC<{
   setImage: Dispatch<SetStateAction<string>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }> = (props) => {
-  const { setImage } = props;
+  const { setImage, setLoading } = props;
   const [downloadPath, setDownloadPath] = useState("");
   const [openDownload, setOpenDownload] = useState(false);
   const [canClickSend, setCanClickSend] = useState(true);
@@ -30,6 +30,7 @@ export const SubmitImage: React.FC<{
     setOpenSnackbar(false);
     setCanClickSelect(true);
     setCanClickSend(true);
+    setLoading(true);
 
     e.preventDefault();
     const Upload = () => {
@@ -41,6 +42,7 @@ export const SubmitImage: React.FC<{
           setImage(res.data.name);
           setDownloadPath(res.data.name);
           setOpenDownload(true);
+          setLoading(false);
         });
     };
     Upload();
