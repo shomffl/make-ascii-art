@@ -1,7 +1,12 @@
-import React, { useState, memo } from "react";
+import React, { memo } from "react";
 import { saveAs } from "file-saver";
 import Button from "@mui/material/Button";
 import DownloadIcon from "@mui/icons-material/Download";
+
+const buttonStyle = {
+  border: "0.1vmax solid #F04B48",
+  color: "#F04B48",
+};
 
 export const DownloadImage: React.FC<{ downloadPath: any }> = memo((props) => {
   const { downloadPath } = props;
@@ -18,7 +23,7 @@ export const DownloadImage: React.FC<{ downloadPath: any }> = memo((props) => {
         onClick={onClickDownload}
         variant="outlined"
         size="large"
-        color="secondary"
+        style={buttonStyle}
       >
         Download
         <DownloadIcon />

@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/static/js/main.54b6683e.chunk.js",
-    "main.js.map": "/static/js/main.54b6683e.chunk.js.map",
+    "main.js": "/static/js/main.e7a1242a.chunk.js",
+    "main.js.map": "/static/js/main.e7a1242a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ca8a39a3.js",
     "runtime-main.js.map": "/static/js/runtime-main.ca8a39a3.js.map",
     "static/js/2.3061cf24.chunk.js": "/static/js/2.3061cf24.chunk.js",
@@ -14,13 +14,13 @@
     "static/js/2.3061cf24.chunk.js.LICENSE.txt": "/static/js/2.3061cf24.chunk.js.LICENSE.txt",
     "static/media/fugaku.ba83c6dd.png": "/static/media/fugaku.ba83c6dd.png",
     "static/media/fugaku_ascii.7aa60ff0.png": "/static/media/fugaku_ascii.7aa60ff0.png",
-    "static/media/momiji.6a9061a7.png": "/static/media/momiji.6a9061a7.png",
+    "static/media/momiji.5518f2c9.png": "/static/media/momiji.5518f2c9.png",
     "static/media/washi.9362b7a7.png": "/static/media/washi.9362b7a7.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ca8a39a3.js",
     "static/js/2.3061cf24.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.54b6683e.chunk.js"
+    "static/js/main.e7a1242a.chunk.js"
   ]
 }

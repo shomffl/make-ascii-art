@@ -9,6 +9,12 @@ import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
+
+const buttonStyle = {
+  border: "0.1vmax solid #F04B48",
+  color: "#F04B48",
+};
+
 export const SubmitImage: React.FC<{
   setImage: Dispatch<SetStateAction<string>>;
 }> = (props) => {
@@ -89,8 +95,8 @@ export const SubmitImage: React.FC<{
               <Button
                 variant="outlined"
                 size="large"
-                  component="span"
-                  color = "secondary"
+                component="span"
+                style={buttonStyle}
                 disabled={canClickSelect}
               >
                 Select
@@ -100,8 +106,8 @@ export const SubmitImage: React.FC<{
               <Button
                 variant="outlined"
                 size="large"
-                  type="submit"
-                  color = "secondary"
+                type="submit"
+                style={buttonStyle}
                 disabled={canClickSend}
               >
                 <span>Send</span>

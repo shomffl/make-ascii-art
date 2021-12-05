@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SubmitImage } from "./SubmitImage";
 import logo from "../momiji.png";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import background from "../washi.png";
 
 export const ImageDisplay: React.FC = () => {
